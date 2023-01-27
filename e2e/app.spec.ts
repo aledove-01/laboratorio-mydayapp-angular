@@ -12,13 +12,16 @@ const TODO_ITEMS = [
 
 test.describe('New Todo', () => {
   test('should allow me to add todo items', async ({ page }) => {
+   
     // Create 1st todo.
     await page.locator('.new-todo').fill(TODO_ITEMS[0]);
     await page.locator('.new-todo').press('Enter');
 
     // Make sure the list only has one todo item.
     await expect(page.locator('.view label')).toHaveText([TODO_ITEMS[0]]);
-
+    
+     
+   
     // Create 2nd todo.
     await page.locator('.new-todo').fill(TODO_ITEMS[1]);
     await page.locator('.new-todo').press('Enter');
@@ -28,6 +31,11 @@ test.describe('New Todo', () => {
       TODO_ITEMS[0],
       TODO_ITEMS[1],
     ]);
+/*
+    const myElement = await page.locator('.view label').allInnerTexts();
+    
+
+    console.log(myElement)*/
 
     await checkNumberOfTodosInLocalStorage(page, 2);
   });
