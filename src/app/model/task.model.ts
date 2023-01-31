@@ -1,7 +1,7 @@
 export class Task{
-    id: string = ''
-    title: string = ''
-    completed: boolean = false;
+    id = ''
+    title = ''
+    completed = false;
     constructor(){
         this.id = '';
         this.title = '';

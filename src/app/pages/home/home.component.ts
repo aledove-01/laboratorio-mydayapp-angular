@@ -8,20 +8,19 @@ import { Task } from '../../model/task.model';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
-  txtTodo:string = '';
-  countTasks:number=0;
+  txtTodo = '';
+  countTasks=0;
   newTask:Task | undefined;
 
   ngOnInit(): void {
-    console.log('init1');
+    console.log('init1')
   }
   updateTasks(count:number){
     console.log('updatecountertask')
     this.countTasks = count;
   }
   pressEnter(){
-    let txt:string = this.txtTodo;
+    const txt:string = this.txtTodo;
     if(txt.trim() != ''){
       if (this.countTasks == 0) {
         this.countTasks = 1;

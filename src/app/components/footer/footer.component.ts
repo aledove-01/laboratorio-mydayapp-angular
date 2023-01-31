@@ -1,17 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.css'],
 })
-export class FooterComponent implements OnInit {
-
-  constructor() { }
-  @Input() countTasks:number = 0;
-
-  ngOnInit(): void {
-    console.log('first')
-  }
-
+export class FooterComponent {
+  @Input() countTasks = 0;
 }
