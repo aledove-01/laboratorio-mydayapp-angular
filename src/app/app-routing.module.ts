@@ -7,13 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    pathMatch: 'full'
-  },{path: 'pending',
-  component: HomeComponent,}
+    pathMatch: 'full',
+  },
+  { path: 'pending', component: HomeComponent },
+  { path: 'completed', component: HomeComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

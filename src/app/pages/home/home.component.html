@@ -15,12 +15,23 @@
     </div>
   </header>
   <div class="container todoapp-wrapper">
-    <!-- This section should be hidden by default and shown when there are todos  -->
-    <ng-container *ngIf="countTasks>0">
-      <app-tasks (countTasks)="updateTasks($event)" [newTask]="newTask"   ></app-tasks>
-    </ng-container>
+    <!-- This section should be hidden by default and shown when there are todos (updateTask)="updateTask($event)" -->
+    
+      <section class="main" *ngIf="countTasks>0 || this.tasks.length > 0">
+        <ul class="todo-list">
+          
+            <li *ngFor="let task of this.tasks" [ngClass]="{'editing':task.isEditing,   'completed':task.completed}"  >
+                <app-task [task]="task" (isEditing)="isEditing($event)" ></app-task>
+            </li>
+            
+          
+        </ul>
+      </section>
+
+      
+     
     
     <!-- This footer should be hidden by default and shown when there are todos -->
-    <app-footer *ngIf="countTasks>0" [countTasks]="countTasks" ></app-footer>
+    <app-footer [countTasks]="countTasks" *ngIf="countTasks>0 || this.tasks.length > 0"  ></app-footer>
   </div>
 </section>

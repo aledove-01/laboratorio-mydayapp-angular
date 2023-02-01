@@ -12,16 +12,13 @@ const TODO_ITEMS = [
 
 test.describe('New Todo', () => {
   test('should allow me to add todo items', async ({ page }) => {
-   
     // Create 1st todo.
     await page.locator('.new-todo').fill(TODO_ITEMS[0]);
     await page.locator('.new-todo').press('Enter');
 
     // Make sure the list only has one todo item.
     await expect(page.locator('.view label')).toHaveText([TODO_ITEMS[0]]);
-    
-     
-   
+
     // Create 2nd todo.
     await page.locator('.new-todo').fill(TODO_ITEMS[1]);
     await page.locator('.new-todo').press('Enter');
@@ -31,7 +28,7 @@ test.describe('New Todo', () => {
       TODO_ITEMS[0],
       TODO_ITEMS[1],
     ]);
-/*
+    /*
     const myElement = await page.locator('.view label').allInnerTexts();
     
 
@@ -325,7 +322,7 @@ async function createDefaultTodos(page: Page) {
 }
 
 async function checkNumberOfTodosInLocalStorage(page: Page, expected: number) {
-  return await page.waitForFunction((e) => {
+  return await page.waitForFunction(e => {
     return JSON.parse(localStorage['mydayapp-angular']).length === e;
   }, expected);
 }
@@ -334,7 +331,7 @@ async function checkNumberOfCompletedTodosInLocalStorage(
   page: Page,
   expected: number
 ) {
-  return await page.waitForFunction((e) => {
+  return await page.waitForFunction(e => {
     return (
       JSON.parse(localStorage['mydayapp-angular']).filter(
         (todo: any) => todo.completed
@@ -344,7 +341,7 @@ async function checkNumberOfCompletedTodosInLocalStorage(
 }
 
 async function checkTodosInLocalStorage(page: Page, title: string) {
-  return await page.waitForFunction((t) => {
+  return await page.waitForFunction(t => {
     return JSON.parse(localStorage['mydayapp-angular'])
       .map((todo: any) => todo.title)
       .includes(t);

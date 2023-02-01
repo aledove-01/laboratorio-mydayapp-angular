@@ -5,26 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TaskComponent } from './components/task/task.component';
-import { TasksComponent } from './components/tasks/tasks.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AutofocusDirective } from './directives/autofocus.directive';
 import { FormsModule } from '@angular/forms';
+import { LocalBDService } from './services/local-bd.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TaskComponent,
-    TasksComponent,
     FooterComponent,
-    AutofocusDirective
+    AutofocusDirective,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  providers: [LocalBDService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

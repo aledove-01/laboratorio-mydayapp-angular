@@ -1,7 +1,13 @@
-<ng-container *ngIf="this.task.completed" >
+<div class="view">
+    <input class="toggle" type="checkbox" [checked]="task.completed" (click)="completed()"/>
+    <label (dblclick)="edit()" >{{task.title}}</label>
+    <button class="destroy" (click)="destroy()"></button>
+</div>
+<input #editInput class="edit" value="{{task.title}}" (keyup.esc)="cancelEdit()" (keyup.enter)="okEdit()" [(ngModel)]="txtTodo"  *ngIf="task.isEditing"/>
+<!--- <ng-container *ngIf="this.task.completed" >
  
         <div class="view">
-            <input class="toggle" type="checkbox" checked />
+            <input class="toggle" type="checkbox" checked (click)="completed()" />
             <label>{{this.task.title}}</label>
             <button class="destroy"></button>
         </div>
@@ -10,7 +16,7 @@
 </ng-container>
 <ng-container *ngIf="!this.task.completed"  >
         <div class="view">
-            <input class="toggle" type="checkbox" />
+            <input class="toggle" type="checkbox" (click)="completed()"/>
             <label>{{this.task.title}}</label>
             <button class="destroy"></button>
         </div>
@@ -18,10 +24,10 @@
 </ng-container>
 <ng-container *ngIf="this.editMode"  >
         <div class="view">
-            <input class="toggle" type="checkbox" />
+            <input class="toggle" type="checkbox" (click)="completed()"/>
             <label>{{this.task.title}}</label>
             <button class="destroy"></button>
           </div>
           <input class="edit" value="{{this.task.title}}" />
-</ng-container>
+</ng-container> -->
   
